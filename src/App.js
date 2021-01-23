@@ -13,7 +13,7 @@ function App() {
           Coin Exchange
         </h1>
       </header>
-      <section className="balance">
+      <section>
         <h2>Account Balance</h2>
         <AccountBalance amount={10000}/>
       </section>

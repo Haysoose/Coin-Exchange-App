@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './AccountBalance.css';
+import styled from 'styled-components';
+
+const Section = styled.section`
+    color: rgb(43, 116, 61);
+    font-size: 2rem;
+`;
 
 export default class AccountBalance extends Component {
     render(){
         return(
-            <section className = "balance">
+            <Section>
             ${this.props.amount}
-            </section>
+            </Section>
         );
     }
 }
