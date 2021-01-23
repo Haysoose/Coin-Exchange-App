@@ -33,10 +33,10 @@ export default class Coin extends Component {
         return (
             <tr className="coin-row">
                 <Td>{this.props.name}</Td>
-                <Td>{this.props.name}</Td>
-                <Td>{this.props.name}</Td>
-                <Td>                    
-                    <form action="#" method="POST">
+                <Td>{this.props.ticker}</Td>
+                <Td>{this.props.price}</Td>
+                <Td>
+                    <form action="#" method="POST">                    
                         <button onClick={this.handleClick}>Refresh</button>
                     </form>
                 </Td>
