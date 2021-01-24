@@ -8,15 +8,36 @@ const Section = styled.section`
 `;
 
 export default class AccountBalance extends Component {
+    constructor(props){
+        super(props);
+        this.hideOrShowBalance = this.hideOrShowBalance.bind(this);
+    }
+
+    hideOrShowBalance(event){
+        //Prevent the default action of submitting the form
+        event.preventDefault();
+        this.props.handleBalance(this.props.showBalance);
+    }
+
     render(){
+        const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance'
+        let content = null;
+        if(this.props.showBalance){
+            content = <>${this.props.amount}</>;
+        }
         return(
             <Section>
-            ${this.props.amount}
+            {content}
+                <form action="#">
+                    <button onClick={this.hideOrShowBalance}>{buttonText}</button>
+                </form>
             </Section>
         );
     }
 }
 
 AccountBalance.propTypes = {
-    amount: PropTypes.number.isRequired
+    accountNum: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+    showBalance: PropTypes.bool.isRequired,
 }
