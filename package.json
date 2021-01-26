@@ -13,11 +13,14 @@
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
+  "homepage": "https://hayden-marlowe.github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

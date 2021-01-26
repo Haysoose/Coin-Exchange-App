@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -7,24 +7,31 @@ const Td = styled.td`
     width: 25vh;
 `;
 
-export default function Coin (props) {
+export default class Coin extends Component {
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-    const handleClick = (event) => {
+    handleClick(event) {
         //Prevent the default action of submitting the form
         event.preventDefault();
-        props.handleRefresh(props.tickerId);
+        this.props.handleRefresh(this.props.tickerId);
     }
-        if(props.showBalance){
+
+    render(){
+        
+    if(this.props.showBalance){
 
         return (
             <tr className="coin-row">
-                <Td>{props.name}</Td>
-                <Td>{props.ticker}</Td>
-                <Td>{props.price}</Td>
-                <Td>{props.balance}</Td>
+                <Td>{this.props.name}</Td>
+                <Td>{this.props.ticker}</Td>
+                <Td>{this.props.price}</Td>
+                <Td>{this.props.balance}</Td>
                 <Td>
                     <form action="#">                    
-                        <button onClick={handleClick}>Refresh</button>
+                        <button onClick={this.props.handleClick}>Refresh</button>
                     </form>
                 </Td>
               </tr>
@@ -33,17 +40,18 @@ export default function Coin (props) {
         else{
             return (
                 <tr className="coin-row">
-                    <Td>{props.name}</Td>
-                    <Td>{props.ticker}</Td>
-                    <Td>{props.price}</Td>
+                    <Td>{this.props.name}</Td>
+                    <Td>{this.props.ticker}</Td>
+                    <Td>{this.props.price}</Td>
                     <Td>
                         <form action="#">                    
-                            <button onClick={handleClick}>Refresh</button>
+                            <button onClick={this.props.handleClick}>Refresh</button>
                         </form>
                     </Td>
                   </tr>
             )
         }
+    }
 }
 
 Coin.propTypes = {
